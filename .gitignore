@@ -1,1 +1,7 @@
 Pipfile.lock
+
+my_blog/my_blog/settings/local.py
+
+.idea/*
+
+my_blog/db.sqlite3
