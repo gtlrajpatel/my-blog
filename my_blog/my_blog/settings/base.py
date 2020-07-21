@@ -28,13 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # project apps
-
-    'users',
-    'blog',
-
     # third-party apps
-
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
@@ -44,9 +38,12 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'allauth.socialaccount',
     'crispy_forms',
+
+    # project apps
+    'users',
+    'blog',
 ]
 
-AUTH_USER_MODEL = 'users.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -120,13 +117,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+AUTH_USER_MODEL = 'users.CustomUser'
 
 LOGIN_REDIRECT_URL = '/'
 ACCOUNT_LOGOUT_ON_GET = True
@@ -146,3 +143,8 @@ ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 SITE_ID = 1
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'admin@myblog.com'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+

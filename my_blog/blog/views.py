@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
-import django_filters
 from django.views.generic import ListView, TemplateView, CreateView, DeleteView, UpdateView
+import django_filters
+
 from .models import Blog
 from .filters import BlogFilter
-# from .filters import UserFilter
 
 
-class HomeView(ListView):
+class BlogListView(ListView):
     model = Blog
     template_name = 'index.html'
     context_object_name = 'blog_entries'
@@ -25,7 +25,7 @@ def search(request):
     return render(request, 'index.html', {'filter': blog_filter})
 
 
-class CreateBlogView(LoginRequiredMixin, CreateView):
+class NewBlogView(LoginRequiredMixin, CreateView):
     model = Blog
     template_name = "create_blog.html"
     fields = ['title', 'body']
@@ -35,7 +35,7 @@ class CreateBlogView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class DashboardView(LoginRequiredMixin, ListView):
+class ProfileView(LoginRequiredMixin, ListView):
     model = Blog
     template_name = "profile.html"
     context_object_name = 'blog_entries'
@@ -70,5 +70,6 @@ class BlogUpdateView(LoginRequiredMixin, UpdateView):
     def test_func(self):
         blog = self.get_object()
         return blog.author == self.request.user
+
 
 
