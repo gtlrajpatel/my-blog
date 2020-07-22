@@ -4,7 +4,7 @@
 
 My Blog project is made up with both by using  REST Framework and without using  REST Framework.
 
-##Installation steps
+# Installation steps
 
 
 
@@ -46,7 +46,7 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
-<br/><br/>
+<br/>
 
 **My Blog project contains 3 apps.** 
 
