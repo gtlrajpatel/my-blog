@@ -16,7 +16,6 @@ class BlogListView(ListView):
 
     def get_ordering(self):
         ordering = self.request.GET.get('ordering', '-date')
-        # validate ordering here
         return ordering
 
 
@@ -43,7 +42,7 @@ class ProfileView(LoginRequiredMixin, ListView):
     paginate_by = 3
 
     def get_queryset(self):
-        return Blog.objects.filter(author=self.request.user)
+        return Blog.objects.filter(author=self.request.user).order_by('-date')
 
 
 class BlogDeleteView(DeleteView):
