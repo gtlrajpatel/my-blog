@@ -31,7 +31,7 @@ Profile | My Blog
           <div class="card mb-4 mt-4">
             <div class="card-body">
               <h2 class="card-title">{{blog.title}}</h2>
-              <p class="card-text">{{blog.body}}</p>
+              <p class="card-text">{{blog.body | truncatechars:200}}</p>
                 <a class='btn btn-secondary btn-sam mt-1 mb-1' href="{% url 'post-update' blog.id %}">Update</a>
                 <a class='btn btn-danger btn-sam mt-1 mb-1' href="{% url 'post-delete' blog.id %}">Delete</a>
               {% comment %} <a href="#" class="btn btn-primary btn-sm">Read More &rarr;</a> {% endcomment %}

@@ -2,16 +2,31 @@
 
 {% load crispy_forms_tags %}
 {% block content %}
-<div class="content-section">
-    <form method="POST">
+
+<section class="page-section" id="main">
+    <div class="container">
+      <div class="row" style="padding-bottom:200px;">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase" style="text-align: center;">Update Blog</h2>
+        </div>
+      </div>
+
+      <div class="row text-center">
+       <div class="col-md-2"></div>
+       <div class="col-md-8" style="background-color: #000000b3; color: white;">
+        <form method="POST">
         {% csrf_token %}
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-4">New Blog Post</legend>
-            {{ form|crispy }}
+<!--        <fieldset class="form-group">-->
+            {% csrf_token %}
+            {{ form| crispy }}
         </fieldset>
         <div class="form-group">
-            <button class="btn btn-outline-info" type="submit">Post</button>
+            <button class="btn btn-primary" type="submit">Post</button>
         </div>
     </form>
 </div>
+<div class="col-md-2"></div>
+      </div>
+    </div>
+</section>
 {% endblock content %}
