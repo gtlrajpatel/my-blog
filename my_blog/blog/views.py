@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, TemplateView, CreateView, DeleteView, UpdateView
-import django_filters
 
 from .models import Blog
 from .filters import BlogFilter
+
+import django_filters
 
 
 class BlogListView(ListView):
@@ -70,6 +71,3 @@ class BlogUpdateView(LoginRequiredMixin, UpdateView):
     def test_func(self):
         blog = self.get_object()
         return blog.author == self.request.user
-
-
-

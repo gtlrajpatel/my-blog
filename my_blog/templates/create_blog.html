@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block title %}
 New Blog | My Blog
@@ -7,28 +8,32 @@ New Blog | My Blog
 {% block content %}
 <section class="page-section" id="Head">
     <div class="container">
+        <div class="row" style="padding-bottom: 100px;">
+        <div class="col-lg-12 text-center">
+          <h1>Create New Blog</h1>
+        </div>
+        </div>
         <div class="row text-center">
-            <div class="col-md-2"></div>
+          <div class="col-md-2"></div>
         <div class="col-md-8">
-            <div class="card mb-4 mt-4">
-                <div class="card-header">Create Blog Post</div>
+            <div class="card mb-4 mt-4" style="background-color: #000000b3; color: white;">
                 <div class="card-body">
                     <form method="post">
-                        {% csrf_token %} 
-                        {{form.as_p}}
-                        <small><small id="letters">200</small> character remaining</small> <br /><br />
+                        {% csrf_token %}
+                        {{form| crispy}}
+                        <p style="color: white;">Maximum Characters limit is 200</p></br>
                         <button type="submit" class="btn btn-primary">Post</button>
-                    </form> 
+                    </form>
                 </div>
             </div>
         </div>
-            <div class="col-md-2"></div>
+          <div class="col-md-2"></div>
         </div>
     </div>
 </section>
 
 {% endblock %}
-    
+
 {% block extra_js %}
     <script>
         $("#{{ form.post_text.auto_id }}").keyup(function(){

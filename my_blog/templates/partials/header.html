@@ -13,8 +13,6 @@
         <a class="nav-link" href='/'>Home</a>
       </li>
 
-
-
        {% if user.is_authenticated %}
 
       <li class="nav-item {% if request.resolver_match.url_name == 'profile' %}active{% endif %}">
@@ -26,7 +24,6 @@
           			<i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
         		</a>
         		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-<!---->
           			<a class="dropdown-item" href="{% url 'account_change_password' %}">Change Password</a>
 
           			<div class="dropdown-divider"></div>
